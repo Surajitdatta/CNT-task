@@ -17,17 +17,12 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Retrieve all users from localStorage
     const users = JSON.parse(localStorage.getItem('userRegistrationData')) || [];
-
-    // Check if the entered credentials match any user
     const userFound = users.some(user => user.email === loginData.email && user.password === loginData.password);
 
     if (userFound) {
       alert('Login Successful!');
       x("/accounts")
-      // Here you can redirect to a different page or perform other actions
     } else {
       alert('Invalid email or password. Please try again.');
     }
