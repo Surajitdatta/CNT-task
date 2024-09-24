@@ -11,21 +11,15 @@ const Accounts = () => {
     lastName: '',
     email: ''
   });
-
-  // Fetch users from localStorage on component mount
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem('userRegistrationData')) || [];
     setUsers(storedUsers);
   }, []);
-
-  // Function to handle viewing user details
   const handleView = (user) => {
     setSelectedUser(user);
     const modal = new window.bootstrap.Modal(document.getElementById('userDetailsModal'));
     modal.show();
   };
-
-  // Function to handle editing user details
   const handleEdit = (user) => {
     setEditingUser(user);
     setEditedData({
@@ -36,16 +30,12 @@ const Accounts = () => {
     const modal = new window.bootstrap.Modal(document.getElementById('editUserModal'));
     modal.show();
   };
-
-  // Function to handle change in input fields
   const handleChange = (e) => {
     setEditedData({
       ...editedData,
       [e.target.name]: e.target.value
     });
   };
-
-  // Function to save edited user details
   const saveEdit = () => {
     const updatedUsers = users.map(user => 
       user.email === editingUser.email ? { ...user, ...editedData } : user
@@ -70,7 +60,7 @@ const Accounts = () => {
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
               <th scope="col">Email</th>
-              <th scope="col">Actions</th> {/* New column for actions */}
+              <th scope="col">Actions</th> 
             </tr>
           </thead>
           <tbody>
@@ -101,7 +91,6 @@ const Accounts = () => {
         </table>
       )}
 
-      {/* Bootstrap Modal for viewing user details */}
       <div className="modal fade" id="userDetailsModal" tabIndex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -129,7 +118,7 @@ const Accounts = () => {
         </div>
       </div>
 
-      {/* Bootstrap Modal for editing user details */}
+      
       <div className="modal fade" id="editUserModal" tabIndex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
