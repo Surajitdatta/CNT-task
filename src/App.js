@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        {/* Navigation Header */}
+      
         <nav className="navbar navbar-light bg-light">
           <div className="container-fluid d-flex justify-content-between">
             <Link className="navbar-brand" to="/">Assignment</Link>
@@ -23,7 +23,6 @@ function App() {
           </div>
         </nav>
 
-        {/* Routes for the different pages */}
         <div className="container mt-5">
           <Routes>
             <Route path="/" element={<RegistrationForm />} />
