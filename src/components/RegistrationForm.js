@@ -19,19 +19,11 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Get existing users from localStorage or initialize an empty array
     const existingUsers = JSON.parse(localStorage.getItem('userRegistrationData')) || [];
-    
-    // Add the new user to the existing users array
     existingUsers.push(formData);
-    
-    // Store updated users array in localStorage
     localStorage.setItem('userRegistrationData', JSON.stringify(existingUsers));
     
     alert('Registration Successful and Data Stored in Local Storage');
-    
-    // Reset the form
     setFormData({
       firstName: '',
       lastName: '',
